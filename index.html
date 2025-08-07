@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WebhookSender</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-dark">
+  <div class="container">
+    <div class="card">
+      <h1>WebhookSender</h1>
+
+      <div class="tab-container">
+        <div class="tab active" onclick="switchTab('message-tab')">message</div>
+        <div class="tab" onclick="switchTab('settings-tab')">settings</div>
+      </div>
+
+      <div id="message-tab" class="tab-content active">
+        <div class="toggle-container">
+          <label class="toggle">
+            <input type="checkbox" id="embed-toggle" onchange="toggleEmbed()" />
+            <span class="slider"></span>
+          </label>
+          <span>enable embed</span>
+        </div>
+
+        <h3>webhook url</h3>
+        <input type="text" id="webhook-url" placeholder="https://discord.com/api/webhooks/..." />
+
+        <h3>message content</h3>
+        <textarea id="message-content" placeholder="enter your message here..."></textarea>
+
+        <h3>username</h3>
+        <input type="text" id="webhook-username" placeholder="custom username" />
+
+        <h3>avatar url</h3>
+        <input type="text" id="webhook-avatar" placeholder="https://example.com/avatar.png" />
+
+        <div id="embed-section" class="hidden">
+          <h2>embed builder</h2>
+          <!-- embed inputs kommen hier noch rein -->
+        </div>
+
+        <div class="button-group">
+          <button class="btn primary" onclick="sendWebhook()">send webhook</button>
+          <button class="btn secondary" onclick="previewWebhook()">preview</button>
+        </div>
+
+        <div id="success-message" class="success-message">webhook sent successfully!</div>
+      </div>
+
+      <div id="settings-tab" class="tab-content">
+        <h2>settings</h2>
+
+        <h3>rate limit bypass</h3>
+        <select id="rate-limit-bypass">
+          <option value="false">disabled</option>
+          <option value="true">enabled</option>
+        </select>
+
+        <h3>request timeout</h3>
+        <input type="number" id="request-timeout" value="5000" placeholder="timeout in milliseconds" />
+
+        <h3>default webhook url</h3>
+        <input type="text" id="default-webhook-url" placeholder="https://discord.com/api/webhooks/..." />
+        <button class="btn primary" onclick="saveDefaultWebhook()">save default</button>
+
+        <h3>theme</h3>
+        <select id="theme-selector" onchange="changeTheme()">
+          <option value="dark">dark</option>
+          <option value="light">light</option>
+          <option value="amoled">amoled</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card preview-card">
+      <h2>preview</h2>
+      <div id="preview-content">
+        <p>your preview will appear here...</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <p>made by <a href="https://github.com/404nethunter" target="_blank" rel="noopener noreferrer">haku</a></p>
+      <p><a href="https://github.com/404nethunter/WebhookSender" target="_blank" rel="noopener noreferrer">view source</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
