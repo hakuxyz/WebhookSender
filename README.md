@@ -9,7 +9,7 @@ all source code chillin’ in the `src` folder for max clarity & easy handling
 
 - send discord webhook messages in seconds  
 - customize username & avatar url  
-- toggle embed (coming soon™)  
+- toggle embed
 - live preview so you don’t screw up  
 - clean af minimal design  
 
